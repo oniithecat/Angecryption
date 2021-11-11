@@ -20,5 +20,5 @@ pip3 install -r requirements.txt
 ### __Example__
 
 ```
-python3 Angecryption.py -f input.png -k [KEY] -i [IV] -o flag
+python3 angecryption.py -f input.png -k [KEY] -i [IV] -o flag
 ```
