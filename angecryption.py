@@ -15,36 +15,36 @@ def main(options):
                     with open(options.file,"rb") as a :
                         encrypted = a.read()
                 except:
-                    print(Fore.RED + f"[-] Problème lors de la lecture du fichier")
+                    print(Fore.RED + f"[-] Problem for reading the file")
                 try :
                     options.iv = bytes.fromhex(options.iv) 
                 except:
-                    print(Fore.RED + f"[-] L'iv n'est pas au bon format")
+                    print(Fore.RED + f"[-] The IV is not in the right format")
                     return
                 try:
                     aes = AES.new(options.key, AES.MODE_CBC, options.iv)
                 except:
-                    print(Fore.RED + f"[-] Problème lors de la création de la clé AES")
+                    print(Fore.RED + f"[-] Problem when creating the AES key")
                     return
                 decrypted = aes.decrypt(encrypted)
                 try:        
                     with open(options.output,'wb') as b:
                         b.write(decrypted)
                 except:
-                    print(Fore.RED + f"[-] Problème lors de la création du nouveau fichier")
+                    print(Fore.RED + f"[-] Problem when creating the new file")
                     return
                 b.close()
         
 def parseArgs():
-    description = "Ce script peut être utilisé pour un fichier qui utilise l'Angecryption"
+    description = "This script can be used for a file that uses Angecryption"
     parser = argparse.ArgumentParser(
         description=description,
         formatter_class=argparse.RawTextHelpFormatter,
     )
-    parser.add_argument("-f", "--file", default=None, action="store_true", help="Nom du fichier d'entrée")
-    parser.add_argument("-k", "--key", default=None, action="store_true", help="Clé de l'angecryption")
-    parser.add_argument("-o", "--output", default="decrypted", action="store_true", help="Nom du fichier de sortie")
-    parser.add_argument("-i", "--iv", default=None, action="store_true", help="IV de l'angecryption")
+    parser.add_argument("-f", "--file", default=None, action="store_true", help="Name of the input file")
+    parser.add_argument("-k", "--key", default=None, action="store_true", help="Angecryption's key")
+    parser.add_argument("-o", "--output", default="decrypted", action="store_true", help="Name of the output file")
+    parser.add_argument("-i", "--iv", default=None, action="store_true", help="Angecryption's IV")
     if len(sys.argv)==1:
 	    parser.print_help(sys.stderr)
 	    sys.exit(1)
