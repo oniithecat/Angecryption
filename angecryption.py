@@ -8,7 +8,7 @@ from colorama import *
 
 init()
 
-banner = Fore.BLUE + Style.BRIGHT + "[~] Angecryption, v1.0\n"
+banner = Fore.BLUE + Style.BRIGHT + "[~] Angecryption, v1.0.0\n"
 
 def main(options):
                 try : 
