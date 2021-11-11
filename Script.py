@@ -1,6 +1,8 @@
 from Crypto.Cipher import AES
 import binascii
 
+# aes-cbc-256  (8 * 32 = 256)
+
 if __name__ == "__main__" : 
     with open('flag.png', 'rb') as f:
 
