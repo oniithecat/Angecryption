@@ -7,7 +7,7 @@ This cryptography approach was created by two researchers **Ange Albertini** and
 
 ### Utility
 
-This tool allows to change the format (pdf, png, jpg ..) with an **_encryption / decryption_** by block (AES, DES..)
+This tool allows to change the format (pdf, png, jpg ..) with an **_encryption / decryption_** by block with AES.
 
 ### Installation
 
