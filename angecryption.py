@@ -34,7 +34,6 @@ def main(options):
                     print(Fore.RED + f"[-] Problème lors de la création du nouveau fichier")
                     return
                 b.close()
-
         
 def parseArgs():
     description = "Ce script peut être utilisé pour un fichier qui utilise l'Angecryption"
