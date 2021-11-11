@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from Crypto.Cipher import *
 import sys
 import argparse
