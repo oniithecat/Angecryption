@@ -4,36 +4,38 @@
 from Crypto.Cipher import *
 import sys
 import argparse
+from colorama import *
 
-banner = "[~] Angecryption, v1.0\n"
+init()
+
+banner = Fore.BLUE + Style.BRIGHT + "[~] Angecryption, v1.0\n"
 
 def main(options):
-		try :
-			with open(options.file,"rb") as a :
-				encrypted = a.read()
-		except:
-			print(f"Problème lors de la lecture du fichier")
-			return
-		try :
-			options.iv = bytes.fromhex(options.iv) 
-		except:
-			print(f"L'iv n'est pas au bon format")
-			return
-		try:
-			aes = AES.new(options.key, AES.MODE_CBC, options.iv)
-		except:
-			print(f"Problème lors de la création de la clé AES")
-			return
-		decrypted = aes.decrypt(encrypted)
-		try:		
-			with open(options.output,'wb') as b:
-				b.write(decrypted)
-		except:
-			print(f"Problème lors de la création du nouveau fichier")
-			return
-		b.close()
+                try : 
+                    with open(options.file,"rb") as a :
+                        encrypted = a.read()
+                except:
+                    print(Fore.RED + f"[-] Problème lors de la lecture du fichier")
+                try :
+                    options.iv = bytes.fromhex(options.iv) 
+                except:
+                    print(Fore.RED + f"[-] L'iv n'est pas au bon format")
+                    return
+                try:
+                    aes = AES.new(options.key, AES.MODE_CBC, options.iv)
+                except:
+                    print(Fore.RED + f"[-] Problème lors de la création de la clé AES")
+                    return
+                decrypted = aes.decrypt(encrypted)
+                try:        
+                    with open(options.output,'wb') as b:
+                        b.write(decrypted)
+                except:
+                    print(Fore.RED + f"[-] Problème lors de la création du nouveau fichier")
+                    return
+                b.close()
 
-		
+        
 def parseArgs():
     description = "Ce script peut être utilisé pour un fichier qui utilise l'Angecryption"
     parser = argparse.ArgumentParser(
@@ -53,7 +55,4 @@ def parseArgs():
 if __name__ == "__main__" :
     print(banner)
     options = parseArgs()
-    main()
-        
-        
-        
+    main()   
