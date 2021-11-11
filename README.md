@@ -7,7 +7,7 @@ This cryptography approach was created by two researchers **Ange Albertini** and
 
 ### Utility
 
-This tool allows to change the format (pdf, png, jpg ..) with an _encryption / decryption_ by block (AES, DES..)
+This tool allows to change the format (pdf, png, jpg ..) with an **_encryption / decryption_** by block (AES, DES..)
 
 ### Installation
 
@@ -23,5 +23,5 @@ pip3 install -r requirements.txt
 ### Examples 
 
 ```
-python3 Angecryption.py -f input.png -k Xt5fMcSghluqf783 -i e9d908966ed40b4e6951b2638626eac8 -o flag
+python3 Angecryption.py -f input.png -k [KEY] -i [IV] -o flag
 ```
