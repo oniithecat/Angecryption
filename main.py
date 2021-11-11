@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from Crypto.Cipher import AES
-import binascii
-from termcolor import colored
-from art import *
+from Crypto.Cipher import *
 import sys
 import argparse
 
@@ -18,7 +15,7 @@ def main(options):
 			print(f"Problème lors de la lecture du fichier")
 			return
 		try :
-			options.iv = binascii.unhexlify(iv.encode('utf-8')) 
+			options.iv = bytes.fromhex(options.iv) 
 		except:
 			print(f"L'iv n'est pas au bon format")
 			return
